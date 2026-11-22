@@ -1,0 +1,6 @@
+# The 5 difficulty levels. predicted = range of predicted chance of winning.
+- {level: 1, name: Warm-up, predicted: above 68%}
+- {level: 2, name: Easy, predicted: 58–68%}
+- {level: 3, name: Medium, predicted: 47–58%}
+- {level: 4, name: Hard, predicted: 32–47%}
+- {level: 5, name: Expert, predicted: below 32%}

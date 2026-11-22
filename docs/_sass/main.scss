@@ -1,0 +1,277 @@
+// Colors: change them here to restyle the whole site
+$red: #d52b1e;
+$red-light: #fdecea;
+$gold: #e9a23b;
+$ink: #1d2433;
+$muted: #5c6475;
+$line: #e3e6ec;
+$bg: #fafafa;
+$level-colors: (1: #2a9d8f, 2: #8ab17d, 3: #e9c46a, 4: #f4a261, 5: #e76f51);
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: $ink;
+  background: $bg;
+  line-height: 1.6;
+}
+
+a { color: $red; }
+code { background: #eef0f4; padding: 0.1rem 0.35rem; border-radius: 4px; }
+
+// Header and footer
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: $red;
+  .brand { color: #fff; font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+}
+
+.site-nav a {
+  color: rgba(#fff, 0.85);
+  text-decoration: none;
+  margin-left: 1.25rem;
+  &:hover { color: #fff; }
+  &.current { color: #fff; border-bottom: 2px solid #fff; }
+}
+
+.content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+.site-footer {
+  text-align: center;
+  color: $muted;
+  font-size: 0.85rem;
+  padding: 2rem;
+  border-top: 1px solid $line;
+}
+
+section { margin-bottom: 3rem; }
+hr { border: none; border-top: 1px solid $line; margin: 2.5rem 0; }
+.caption { color: $muted; font-size: 0.9rem; }
+
+// Level colors, shared by every element that shows a level
+@each $n, $c in $level-colors {
+  .pill.level-#{$n}, .progression .level-#{$n} span { background: $c; }
+}
+
+.pill {
+  display: inline-block;
+  min-width: 1.8rem;
+  text-align: center;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  margin-right: 0.3rem;
+}
+
+// Home page: intro
+.hero {
+  .kicker { text-transform: uppercase; letter-spacing: 0.08em; color: $red; font-weight: 600; margin: 0; }
+  h1 { font-size: 2.6rem; margin: 0.2rem 0 0.5rem; }
+  .lead { font-size: 1.15rem; }
+}
+
+.progression {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: $muted;
+    width: 5.5rem;
+    position: relative;
+  }
+  // Line joining consecutive levels
+  li + li::before {
+    content: "";
+    position: absolute;
+    top: 1.25rem;
+    right: 50%;
+    width: 100%;
+    height: 3px;
+    background: $line;
+    z-index: 0;
+  }
+  span {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  .cup span { background: $gold; font-size: 1.2rem; }
+  .cup { color: $ink; font-weight: 600; }
+}
+
+// Criteria blocks
+.criterion {
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  margin-top: 1.25rem;
+  h3 { margin-top: 0; }
+}
+
+// Shortest path matrix
+.matrix-wrap { overflow-x: auto; }
+
+.matrix {
+  border-collapse: separate;
+  border-spacing: 4px;
+  font-size: 0.9rem;
+  margin: 0 auto;
+  th { font-weight: 600; padding: 0.3rem 0.5rem; }
+  thead th { font-size: 0.8rem; vertical-align: bottom; max-width: 6rem; }
+  tbody th { text-align: right; }
+  .corner { color: $muted; font-weight: 400; text-align: left; }
+  td {
+    width: 3.2rem;
+    height: 2.6rem;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 6px;
+  }
+  .d1 { background: #fdf0ee; }
+  .d2 { background: #fbd5d1; }
+  .d3 { background: #f19a90; }
+  .d4 { background: #e0553f; color: #fff; }
+  .d5 { background: #9e1d12; color: #fff; }
+  .played { outline: 3px solid $ink; outline-offset: -3px; }
+}
+
+// PageRank formula
+.formula {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.3rem;
+  background: $bg;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    span:first-child { border-bottom: 1.5px solid $ink; padding: 0 0.3rem; }
+  }
+  .sum {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+    line-height: 1;
+    small { font-size: 0.7rem; margin-top: 0.2rem; }
+  }
+}
+
+.formula-legend { font-size: 0.92rem; }
+
+// PageRank bar chart
+.pr-chart { margin: 0.75rem 0; }
+
+.pr-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr 3rem;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.pr-name { text-align: right; }
+.pr-val { color: $muted; font-variant-numeric: tabular-nums; }
+.pr-track { height: 14px; background: #eef0f4; border-radius: 7px; overflow: hidden; }
+.pr-fill { display: block; height: 100%; border-radius: 7px; }
+
+.pr-fill.start, .key.start { background: $ink; }
+.pr-fill.target, .key.target { background: $red; }
+
+.key {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 3px;
+  margin: 0 0.25rem 0 0.75rem;
+  vertical-align: middle;
+}
+
+// Tables
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+  th, td { padding: 0.55rem 0.8rem; text-align: left; border-bottom: 1px solid $line; }
+  th { background: $red-light; font-size: 0.85rem; }
+}
+
+// Coaching page
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.member {
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: center;
+  span { display: block; color: $muted; font-size: 0.85rem; }
+}
+
+.callout {
+  background: $red-light;
+  border-left: 4px solid $red;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+}
+
+.figure {
+  margin: 1.5rem 0;
+  img { max-width: 100%; }
+  figcaption { color: $muted; font-size: 0.9rem; margin-top: 0.5rem; }
+  .placeholder {
+    height: 260px;
+    display: grid;
+    place-items: center;
+    border: 2px dashed $line;
+    border-radius: 10px;
+    color: $muted;
+    background: #fff;
+  }
+}
+
+@media (max-width: 640px) {
+  .content { padding: 1rem; }
+  .site-nav a { margin: 0 1rem 0 0; }
+  .hero h1 { font-size: 2rem; }
+  .pr-row { grid-template-columns: 6.5rem 1fr 2.5rem; }
+}

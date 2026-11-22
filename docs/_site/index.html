@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The World Cup · The Wikispeedia World Cup</title>
+    <meta name="description" content="The first Wikispeedia World Cup, and how team bADAb00m is coaching the Swiss national team.">
+    <link rel="stylesheet" href="/ada2026-ada-2026-project-group-68/assets/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/ada2026-ada-2026-project-group-68/">🏆 The Wikispeedia World Cup</a>
+      <nav class="site-nav">
+  
+    <a href="/ada2026-ada-2026-project-group-68/" class="current">The World Cup</a>
+  
+    <a href="/ada2026-ada-2026-project-group-68/coaching.html">Our coaching</a>
+  
+</nav>
+
+    </header>
+    <main class="content">
+      
+
+<section class="hero">
+  <p class="kicker">For the first time ever</p>
+  <h1>The Wikispeedia World Cup</h1>
+  <p class="lead">Reach a target Wikipedia article from a start article, using only the links on each page. The competition has <strong>five consecutive levels of difficulty</strong>, and a team must complete all five to win the Cup.</p>
+
+  <ol class="progression">
+    
+      <li class="level-1"><span>1</span>Warm-up</li>
+    
+      <li class="level-2"><span>2</span>Easy</li>
+    
+      <li class="level-3"><span>3</span>Medium</li>
+    
+      <li class="level-4"><span>4</span>Hard</li>
+    
+      <li class="level-5"><span>5</span>Expert</li>
+    
+    <li class="cup"><span>🏆</span>World Cup</li>
+  </ol>
+</section>
+
+<section>
+  <h2>How are the levels defined?</h2>
+  <p>The difficulty of a game depends on its start and target articles. We use two main criteria, both known before anyone plays.</p>
+
+  <!-- Criterion 1: shortest path -->
+  <div class="criterion">
+    <h3>1. Shortest path</h3>
+    <p>Wikipedia articles are connected by links, which form a network. The <strong>shortest path</strong> between two articles is the smallest number of clicks needed to go from one to the other, if the player always chose the best link. The longer it is, the more chances the player has to take a wrong turn.</p>
+    <p>The matrix below gives the shortest path between the start articles (rows) and the target articles (columns) of six games that were each played more than 100 times. The highlighted cells are the six games we follow on this page.</p>
+
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th class="corner">start ↓ &nbsp; target →</th>
+            <th>Sun</th><th>Viking</th><th>Telephone</th><th>Banana</th><th>Zebra</th><th>Bean</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th>Beer</th>
+              
+                
+                <td class="d2 played">2</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d1">1</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d2">2</td>
+              
+            </tr>
+          
+            <tr>
+              <th>Asteroid</th>
+              
+                
+                <td class="d1">1</td>
+              
+                
+                <td class="d3 played">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+            </tr>
+          
+            <tr>
+              <th>Brain</th>
+              
+                
+                <td class="d2">2</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3 played">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d2">2</td>
+              
+                
+                <td class="d3">3</td>
+              
+            </tr>
+          
+            <tr>
+              <th>Batman</th>
+              
+                
+                <td class="d2">2</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d4 played">4</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d4">4</td>
+              
+            </tr>
+          
+            <tr>
+              <th>Theatre</th>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d2">2</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3 played">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+            </tr>
+          
+            <tr>
+              <th>Pyramid</th>
+              
+                
+                <td class="d1">1</td>
+              
+                
+                <td class="d2">2</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3">3</td>
+              
+                
+                <td class="d3 played">3</td>
+              
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">Links only go one way, so the distance from A to B can differ from the distance from B to A.</p>
+  </div>
+
+  <!-- Criterion 2: PageRank -->
+  <div class="criterion">
+    <h3>2. PageRank of the target</h3>
+    <p><strong>PageRank</strong> measures how important an article is in the network. Imagine a player who clicks on random links forever: the PageRank of an article is the share of time this player spends on it. An article is important if many articles link to it, and even more so if those articles are important themselves. A target with a high PageRank can be reached from many directions, so it is easier to find.</p>
+
+    <div class="formula">
+      <span>PR(A)</span> <span>=</span>
+      <span class="frac"><span>1 − d</span><span>N</span></span>
+      <span>+</span> <span>d</span> <span>·</span>
+      <span class="sum">Σ<small>B → A</small></span>
+      <span class="frac"><span>PR(B)</span><span>L(B)</span></span>
+    </div>
+    <ul class="formula-legend">
+      <li><strong>PR(A)</strong>: PageRank of article A</li>
+      <li><strong>B → A</strong>: every article B that has a link to A</li>
+      <li><strong>L(B)</strong>: number of links leaving article B, so B shares its importance among all the pages it links to</li>
+      <li><strong>N</strong>: number of articles (4,604 in Wikispeedia)</li>
+      <li><strong>d = 0.85</strong>: probability that the random player follows a link instead of jumping to a random article</li>
+    </ul>
+
+    <p>PageRank of the articles used above:</p>
+    
+    <div class="pr-chart">
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Sun</span>
+          <div class="pr-track"><span class="pr-fill target" style="width: 100.0%"></span></div>
+          <span class="pr-val">12.06</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Viking</span>
+          <div class="pr-track"><span class="pr-fill target" style="width: 62.18905472636816%"></span></div>
+          <span class="pr-val">7.50</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Brain</span>
+          <div class="pr-track"><span class="pr-fill start" style="width: 35.7379767827529%"></span></div>
+          <span class="pr-val">4.31</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Asteroid</span>
+          <div class="pr-track"><span class="pr-fill start" style="width: 31.011608623548923%"></span></div>
+          <span class="pr-val">3.74</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Beer</span>
+          <div class="pr-track"><span class="pr-fill start" style="width: 29.76782752902156%"></span></div>
+          <span class="pr-val">3.59</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Theatre</span>
+          <div class="pr-track"><span class="pr-fill start" style="width: 29.270315091210612%"></span></div>
+          <span class="pr-val">3.53</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Telephone</span>
+          <div class="pr-track"><span class="pr-fill target" style="width: 27.36318407960199%"></span></div>
+          <span class="pr-val">3.30</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Banana</span>
+          <div class="pr-track"><span class="pr-fill target" style="width: 19.817578772802655%"></span></div>
+          <span class="pr-val">2.39</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Pyramid</span>
+          <div class="pr-track"><span class="pr-fill start" style="width: 12.769485903814262%"></span></div>
+          <span class="pr-val">1.54</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Bean</span>
+          <div class="pr-track"><span class="pr-fill target" style="width: 10.199004975124378%"></span></div>
+          <span class="pr-val">1.23</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Zebra</span>
+          <div class="pr-track"><span class="pr-fill target" style="width: 9.038142620232172%"></span></div>
+          <span class="pr-val">1.09</span>
+        </div>
+      
+        
+        <div class="pr-row">
+          <span class="pr-name">Batman</span>
+          <div class="pr-track"><span class="pr-fill start" style="width: 5.223880597014926%"></span></div>
+          <span class="pr-val">0.63</span>
+        </div>
+      
+    </div>
+    <p class="caption">
+      PageRank × 10<sup>−4</sup>.
+      <span class="key start"></span> start article
+      <span class="key target"></span> target article.
+      For comparison, the median article has a PageRank of 0.86 × 10<sup>−4</sup>.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>From criteria to levels: our model</h2>
+  <p>We trained a model (a logistic regression) on more than 42,000 past games. From the information available before play, it predicts the chance that a player wins a game. The two criteria above carry most of the information. The model also uses the PageRank and number of links of the start article, and how close the two topics are.</p>
+  <ol>
+    <li>Each game gets a <strong>predicted chance of winning</strong>.</li>
+    <li>Its <strong>difficulty score</strong> is <code>1 − predicted chance of winning</code>.</li>
+    <li>Games are sorted by score and split into <strong>five groups of the same size</strong>: level 1 holds the 20% easiest games, level 5 the 20% hardest.</li>
+  </ol>
+
+  <table class="simple-table">
+    <thead><tr><th>Level</th><th>Predicted chance of winning</th></tr></thead>
+    <tbody>
+      
+        <tr><td><span class="pill level-1">1</span> Warm-up</td><td>above 68%</td></tr>
+      
+        <tr><td><span class="pill level-2">2</span> Easy</td><td>58–68%</td></tr>
+      
+        <tr><td><span class="pill level-3">3</span> Medium</td><td>47–58%</td></tr>
+      
+        <tr><td><span class="pill level-4">4</span> Hard</td><td>32–47%</td></tr>
+      
+        <tr><td><span class="pill level-5">5</span> Expert</td><td>below 32%</td></tr>
+      
+    </tbody>
+  </table>
+
+  <h3>Example: the most played games</h3>
+  <p>Here is how the model ranks the six games highlighted in the matrix above.</p>
+  <table class="simple-table">
+    <thead>
+      <tr><th>Game</th><th>Shortest path</th><th>Target PageRank (×10<sup>−4</sup>)</th><th>Predicted chance of winning</th><th>Level</th></tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td><strong>Beer → Sun</strong></td>
+          <td>2</td>
+          <td>12.06</td>
+          <td>78%</td>
+          <td><span class="pill level-1">1</span></td>
+        </tr>
+      
+        <tr>
+          <td><strong>Asteroid → Viking</strong></td>
+          <td>3</td>
+          <td>7.50</td>
+          <td>70%</td>
+          <td><span class="pill level-1">1</span></td>
+        </tr>
+      
+        <tr>
+          <td><strong>Brain → Telephone</strong></td>
+          <td>3</td>
+          <td>3.30</td>
+          <td>59%</td>
+          <td><span class="pill level-2">2</span></td>
+        </tr>
+      
+        <tr>
+          <td><strong>Batman → Banana</strong></td>
+          <td>4</td>
+          <td>2.39</td>
+          <td>60%</td>
+          <td><span class="pill level-2">2</span></td>
+        </tr>
+      
+        <tr>
+          <td><strong>Pyramid → Bean</strong></td>
+          <td>3</td>
+          <td>1.23</td>
+          <td>51%</td>
+          <td><span class="pill level-3">3</span></td>
+        </tr>
+      
+        <tr>
+          <td><strong>Theatre → Zebra</strong></td>
+          <td>3</td>
+          <td>1.09</td>
+          <td>50%</td>
+          <td><span class="pill level-3">3</span></td>
+        </tr>
+      
+    </tbody>
+  </table>
+  <p class="caption">Both criteria matter. <em>Asteroid → Viking</em> and <em>Pyramid → Bean</em> both need 3 clicks, but Viking is much better connected than Bean: level 1 against level 3. And <em>Batman → Banana</em> needs more clicks than <em>Theatre → Zebra</em>, yet it is easier because Banana is better connected than Zebra.</p>
+</section>
+
+    </main>
+    <footer class="site-footer">
+      Team bADAb00m · ADA 2026, EPFL ·
+      Data: <a href="https://snap.stanford.edu/data/wikispeedia.html">Wikispeedia (West &amp; Leskovec)</a>
+    </footer>
+  </body>
+</html>

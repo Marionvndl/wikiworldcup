@@ -1,0 +1,16 @@
+{% comment %}
+  Usage:
+    {% include figure.html image="hubs.png" caption="..." %}      -> image in assets/images/
+    {% include figure.html plot="plots/hubs.html" caption="..." %} -> plotly HTML in _includes/plots/
+    {% include figure.html caption="..." %}                        -> placeholder until the result exists
+{% endcomment %}
+<figure class="figure">
+  {% if include.image %}
+    <img src="{{ '/assets/images/' | append: include.image | relative_url }}" alt="{{ include.caption }}">
+  {% elsif include.plot %}
+    {% include {{ include.plot }} %}
+  {% else %}
+    <div class="placeholder">Figure coming soon</div>
+  {% endif %}
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

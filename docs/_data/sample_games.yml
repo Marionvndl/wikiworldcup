@@ -1,0 +1,53 @@
+# Sample used on the World Cup page: six games played more than 100 times
+# for which the model's prediction is close to the observed win rate (within 8 points).
+# Sources: data/raw/links.tsv (shortest paths), data/processed/article_pagerank.csv,
+# data/processed/game_difficulty_levels.csv, data/processed/games.csv
+
+# Shortest path (clicks) from each start article (rows) to each target article (columns).
+# "played" lists the targets that form a game presented below.
+targets: [Sun, Viking, Telephone, Banana, Zebra, Bean]
+matrix:
+  - start: Beer
+    d: [2, 3, 3, 1, 3, 2]
+    played: [Sun]
+  - start: Asteroid
+    d: [1, 3, 3, 3, 3, 3]
+    played: [Viking]
+  - start: Brain
+    d: [2, 3, 3, 3, 2, 3]
+    played: [Telephone]
+  - start: Batman
+    d: [2, 3, 3, 4, 3, 4]
+    played: [Banana]
+  - start: Theatre
+    d: [3, 2, 3, 3, 3, 3]
+    played: [Zebra]
+  - start: Pyramid
+    d: [1, 2, 3, 3, 3, 3]
+    played: [Bean]
+
+# PageRank of the same articles, in units of 10^-4 (sorted from highest to lowest).
+pagerank_median: "0.86"
+pagerank:
+  - {article: Sun, pr: "12.06", role: target}
+  - {article: Viking, pr: "7.50", role: target}
+  - {article: Brain, pr: "4.31", role: start}
+  - {article: Asteroid, pr: "3.74", role: start}
+  - {article: Beer, pr: "3.59", role: start}
+  - {article: Theatre, pr: "3.53", role: start}
+  - {article: Telephone, pr: "3.30", role: target}
+  - {article: Banana, pr: "2.39", role: target}
+  - {article: Pyramid, pr: "1.54", role: start}
+  - {article: Bean, pr: "1.23", role: target}
+  - {article: Zebra, pr: "1.09", role: target}
+  - {article: Batman, pr: "0.63", role: start}
+
+# Model output for the six games, sorted by level.
+# predicted: predicted chance of winning (%); observed: real win rate (%) over all attempts.
+games:
+  - {start: Beer, target: Sun, distance: 2, target_pr: "12.06", predicted: 78, level: 1, plays: 136, observed: 73}
+  - {start: Asteroid, target: Viking, distance: 3, target_pr: "7.50", predicted: 70, level: 1, plays: 1654, observed: 63}
+  - {start: Brain, target: Telephone, distance: 3, target_pr: "3.30", predicted: 59, level: 2, plays: 1837, observed: 57}
+  - {start: Batman, target: Banana, distance: 4, target_pr: "2.39", predicted: 60, level: 2, plays: 109, observed: 57}
+  - {start: Pyramid, target: Bean, distance: 3, target_pr: "1.23", predicted: 51, level: 3, plays: 1483, observed: 43}
+  - {start: Theatre, target: Zebra, distance: 3, target_pr: "1.09", predicted: 50, level: 3, plays: 1607, observed: 56}
